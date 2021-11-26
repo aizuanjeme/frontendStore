@@ -27,6 +27,7 @@ const Users = {
     save: (users) => requests.post("/users/add", users),
     load: () => requests.get("/users"),
     edit: (id, users) => requests.put(`/users/${id}`, users),
+    view: (id) => requests.get(`/users/${id}`),
 }
 const Exercises = {
     save: (exercises) => requests.post("/exercises/add", exercises),
