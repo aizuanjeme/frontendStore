@@ -1,6 +1,6 @@
 import './App.css';
 import PageRouter from './pageRouter';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
 import useLocalStorage from 'use-local-storage';
 
 
@@ -19,6 +19,7 @@ function App() {
 
 
         <span>Easy Darkmode and Themes in React</span>
+        <Link to="/login"><button className='btn btn-primary'>Login</button></Link>
         <button onClick={switchTheme}>
           <i className={theme === 'light' ? "fas fa-moon" : "fas fa-sun"}></i>
         </button>
