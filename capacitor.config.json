@@ -1,0 +1,8 @@
+{
+  "appId": "com.steph.app",
+  "appName": "Steph",
+  "webDir": "build",
+  "npmClient": "npm",
+  "bundledWebRuntime": false,
+  "cordova": {}
+}

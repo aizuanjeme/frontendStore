@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+
+.app {
+  color: var(--text-primary);
+  background-color: var(--background);
+  padding: 20px;
+  /* height: max-content; */
+  width: 100%;
+  min-height: 100vh;
+  font-size: large;
+  font-weight: bold;
+  transition: all .5s;
+}
+
+button {
+  color: var(--text-primary);
+  background-color: var(--background);
+  border: 2px var(--text-primary) solid;
+  float: right;
+  transition: all .5s;
+}
+
+.card{
+  color: var(--text-primary);
+  background-color: var(--background);
+  border-color: white;
+}
