@@ -1,43 +1,32 @@
-import superagentPromise from "superagent-promise";
-import _superagent from "superagent";
+import axios from "axios";
 
-const superagent = superagentPromise(_superagent, global.Promise);
-
-//DEVELOPMENT
 export const API_ROOT = "http://localhost:5000";
 
-const responseBody = (res) => res.body;
+const responseBody = (res) => res.data;
 
-const requests = {
+
+
+export const agent = {
+
     del: (url) =>
-        superagent.del(`${API_ROOT}${url}`).then(responseBody),
-    get: (url) =>
-        superagent.get(`${API_ROOT}${url}`).then(responseBody),
+        axios.del(`${API_ROOT}${url}`)
+            .then(responseBody),
+
+    get: (url, res) =>
+        axios.get(`${API_ROOT}${url}`)
+            .then((response) => {
+                res(response.data);
+            }),
+
     put: (url, body) =>
-        superagent
+        axios
             .put(`${API_ROOT}${url}`, body)
             .then(responseBody),
-    post: (url, body) =>
-        superagent
+
+    post: (url, body, res) =>
+        axios
             .post(`${API_ROOT}${url}`, body)
-            .then(responseBody),
+            .then((response) => {
+                res(response.data);
+            }),
 };
-
-const Users = {
-    save: (users) => requests.post("/users/add", users),
-    load: () => requests.get("/users"),
-    edit: (id, users) => requests.put(`/users/${id}`, users),
-    view: (id) => requests.get(`/users/${id}`),
-}
-const Exercises = {
-    save: (exercises) => requests.post("/exercises/add", exercises),
-    load: () => requests.get("/exercises"),
-    edit: (id, exercises) => requests.put(`/exercises/${id}`, exercises),
-    delete: (id) => requests.del(`/exercises/${id}`),
-    view: (id) => requests.get(`/exercises/${id}`),
-};
-
-export default {
-    Exercises,
-    Users
-}

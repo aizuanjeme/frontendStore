@@ -62,3 +62,7 @@ button {
   background-color: var(--background);
   border-color: white;
 }
+.table{
+  color: var(--text-primary);
+  background-color: var(--background);
+}
